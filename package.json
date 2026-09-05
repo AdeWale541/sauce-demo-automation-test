@@ -1,0 +1,21 @@
+{
+  "name": "sourcedemopw",
+  "version": "1.0.0",
+  "description": "Automation Test repo for source demo with playwright",
+  "main": "index.js",
+  "scripts": {
+    "all-tests": "npx playwright test sauce.page.spec.js",
+    "auth": "npx playwright test sauce.page.spec.js --grep @authorization",
+    "dashboard": "npx playwright test sauce.page.spec.js --grep @dashboard",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "Adewale",
+  "license": "MIT",
+  "devDependencies": {
+    "@faker-js/faker": "^10.5.0",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.1.1",
+    "validator": "^13.15.35"
+  }
+}

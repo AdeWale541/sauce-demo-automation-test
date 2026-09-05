@@ -1,0 +1,8 @@
+npm init playwright@latest -- Installation
+npx playwright test -- Runs all tests
+npx playwright test sauce.spec.js -- Runs only tests in sauce.spec.js
+npx playwright show-report -- To view last test report
+npx playwright test --ui -- To view playwright GUI
+npx playwright test --debug
+npx playwright codegen -- To use playwright's codegen feature
+npx playwright test --grep @fast      -- To run specific tests
