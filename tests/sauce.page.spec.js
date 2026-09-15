@@ -22,7 +22,7 @@ import config from "../config/config";
 
 
 test.describe('Authorization Tests @authorization', () => {
-    test.only('Verify the standard user is able to log in to sauceDemo website @standard_user',
+    test('Verify the standard user is able to log in to sauceDemo website @standard_user',
         {tag: '@valid_login'}, 
         async ({ page }) => {
         let loginPage = new LoginPage(page,expect)
@@ -110,7 +110,7 @@ test.describe('Dashboard Tests', {tag:"@dashboard"}, () => {
             await dashboardPage.pageAssertion()
         })
 
-        await test.step("Verify user is able to get all inventroy text",async ()=>{
+        await test.step("Verify user is able to get all inventory text",async ()=>{
             const inventoryText= await dashboardPage.getAllInventoryText()
         })
         
