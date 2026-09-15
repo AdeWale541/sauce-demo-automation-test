@@ -9,3 +9,4 @@ node_modules/
 *samp*
 storageState.json
 report/
+.env

@@ -1,7 +1,7 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
 import CustomReporter from './helper/customReporter';
-
+import config from './config/config';
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -25,14 +25,14 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [['html',{outputFile:'./playwright-report/report.html',open: 'never'}],
-              ['./helper/customReporter'],
+              // ['./helper/customReporter'],
               ['json',{outputFile:'./playwright-report/report.json'}]
   ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   timeout: 60*1000,
   use: {
     headless: true,
-    baseURL: 'https://www.saucedemo.com/',
+    baseURL: config.BASE_URL,//'https://www.saucedemo.com/',//https://www.saucedemo.com/dev, https://www.saucedemo.com/staging
     actionTimeout:2 * 1000,
     /* Base URL to use in actions like `await page.goto('')`. */
     // baseURL: 'http://localhost:3000',

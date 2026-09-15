@@ -7,7 +7,7 @@ import DashboardPage from "../page/Dashboard";
 import {generateRandomDateValue} from "../helper/function-helper"
 import url from "../navigation/url.json"
 import { ApiClient } from "../helper/api-client";
-
+import config from "../config/config";
 // test.beforeAll("",async()=>{
 // })
 
@@ -22,11 +22,14 @@ import { ApiClient } from "../helper/api-client";
 
 
 test.describe('Authorization Tests @authorization', () => {
-    test('Verify the standard user is able to log in to sauceDemo website @standard_user',
+    test.only('Verify the standard user is able to log in to sauceDemo website @standard_user',
         {tag: '@valid_login'}, 
         async ({ page }) => {
         let loginPage = new LoginPage(page,expect)
         let dashboardPage = new DashboardPage(page,expect)
+        console.log("IN Auth Tests ");
+        console.log("Current Environment: ",config.ENVIRONMENT);
+        
 
         await test.step("Verify user can navigate to the website",async()=>{
             await page.goto('')
@@ -38,7 +41,7 @@ test.describe('Authorization Tests @authorization', () => {
         })
         
         await test.step("Verify user can login with the username,'standard_user' and password",async()=>{
-            await loginPage.login('standard_user', 'secret_sauce')
+            await loginPage.login('standard_user', config.ADMIN_PASSWORD)
         })
         await page.waitForTimeout(1000)
 

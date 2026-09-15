@@ -2,13 +2,16 @@ name: Sauce Demo Tests
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 6 * * *'
+    - cron: '0 22 * * *'
   push:
     branches: [ main, master ]
   pull_request:
     branches: [ main, master ]
 jobs:
   test:
+    env:
+      NODE_ENV: ${{vars.NODE_ENV}},
+      ADMIN_PASSWORD: ${{secrets.ADMIN_PASSWORD}}
     timeout-minutes: 10
     runs-on: ubuntu-latest
     steps:
@@ -27,4 +30,4 @@ jobs:
       with:
         name: playwright-report
         path: playwright-report/
-        retention-days: 30
+        retention-days: 1
