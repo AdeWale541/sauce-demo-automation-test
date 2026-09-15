@@ -18,7 +18,7 @@ switch (environment) {
         baseUrl='https://saucelabs.com/'
         break;
     default:
-        throw new Error("Invalid Environment Selected")
+        throw new Error(`Invalid Environment ${environment} Selected`)
         break;
 }
 
